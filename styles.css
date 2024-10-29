@@ -1,42 +1,47 @@
-/* Apply a smooth gradient background to the entire body */
-body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4 50%, #fad0c4);
+/* Basic Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Dark Background */
+body {
+    background-color: #1a1a1a;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #333;
 }
 
-/* Style the main app container */
+/* Main Container with Neon Glow */
 .app-container {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
-    padding: 20px;
-    width: 350px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 40px;
+    box-shadow: 0 10px 40px rgba(58, 134, 255, 0.6);
+    width: 600px;
     max-width: 90%;
+    padding: 35px;
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 0.8s ease-in;
+    border: 1px solid rgba(58, 134, 255, 0.4);
 }
 
-/* Header styling */
+/* Neon Header */
 h1 {
+    color: #58d8ff;
     font-size: 1.8rem;
-    margin-bottom: 16px;
-    color: #333;
+    margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: bold;
+    text-shadow: 0 0 10px #58d8ff, 0 0 20px #58d8ff;
 }
 
-/* Task input styling */
+/* Task Input Area */
 .task-input {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
@@ -44,122 +49,122 @@ h1 {
     flex: 1;
     padding: 10px;
     font-size: 0.9rem;
-    border: 2px solid #ddd;
-    border-radius: 6px;
+    background: #333;
+    border: 2px solid #58d8ff;
+    color: #ffffff;
+    border-radius: 8px;
     outline: none;
     transition: all 0.3s ease;
 }
 
 #taskInput:focus, #taskDateTime:focus {
-    border-color: #ff9a9e;
-    box-shadow: 0px 0px 5px rgba(255, 154, 158, 0.4);
+    border-color: #ffa5a5;
+    box-shadow: 0px 0px 8px rgba(255, 165, 165, 0.5);
 }
 
-/* Button styling with subtle hover and shadow effects */
+/* Neon Add Task Button */
 button {
-    padding: 8px 14px;
-    font-size: 0.9rem;
-    color: #fff;
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    padding: 10px;
     border: none;
-    border-radius: 6px;
+    background: linear-gradient(45deg, #58d8ff, #ffa5a5);
+    color: #1a1a1a;
+    font-size: 0.9rem;
+    font-weight: bold;
     cursor: pointer;
+    border-radius: 8px;
     transition: all 0.3s ease;
+    box-shadow: 0 0 10px #58d8ff, 0 0 20px #ffa5a5;
 }
 
 button:hover {
-    background: linear-gradient(45deg, #fad0c4, #ff9a9e);
-    box-shadow: 0px 4px 12px rgba(255, 154, 158, 0.3);
+    background: linear-gradient(45deg, #ffa5a5, #58d8ff);
+    box-shadow: 0 0 15px #ffa5a5, 0 0 30px #58d8ff;
 }
 
-/* Task list styling */
+/* Task List Styling */
 #taskList {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
-    margin: 0;
     max-height: 50vh;
     overflow-y: auto;
 }
 
-/* Individual task item styling with animations */
 .task-item {
-    background: #fff;
+    background: #333;
+    border: 1px solid #ffa5a5;
     border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px 15px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    padding: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: transform 0.2s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(255, 165, 165, 0.3);
+    transition: transform 0.2s ease;
 }
 
 .task-item:hover {
-    transform: translateY(-3px);
+    transform: scale(1.03);
+    box-shadow: 0px 0px 10px #58d8ff, 0px 0px 20px #ffa5a5;
 }
 
-/* Task text with a custom font and completed strike-through effect */
+/* Task Text */
 .task-text {
     font-size: 1rem;
-    color: #333;
+    color: #ffffff;
+    flex: 1;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .task-text.completed {
-    color: #bbb;
+    color: #ff79c6;
     text-decoration: line-through;
-    opacity: 0.7;
 }
 
-/* Styling for date text */
+/* Task Date and Time */
 .task-details small {
-    display: block;
-    font-size: 0.8rem;
-    color: #666;
-    margin-top: 2px;
+    font-size: 0.85rem;
+    color: #aaaaaa;
 }
 
-/* Task actions: Edit and Delete buttons */
+/* Action Buttons */
 .task-actions button {
     background: transparent;
-    color: #333;
+    color: #ffffff;
     font-size: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px 8px;
-    margin-left: 4px;
-    transition: background 0.3s ease, color 0.3s ease;
+    border: 1px solid #58d8ff;
+    border-radius: 6px;
+    padding: 5px;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 8px rgba(88, 216, 255, 0.4);
 }
 
 .task-actions button:hover {
-    background: #ff9a9e;
-    color: #fff;
-    border-color: #ff9a9e;
+    background: #58d8ff;
+    color: #1a1a1a;
+    border-color: #58d8ff;
+    box-shadow: 0px 0px 12px #58d8ff, 0px 0px 24px #ffa5a5;
 }
 
-/* Animation for container */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Add scrollbar styles for a cleaner look */
+/* Scrollbar Styling */
 #taskList::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
 }
 
 #taskList::-webkit-scrollbar-thumb {
-    background-color: #ff9a9e;
-    border-radius: 3px;
+    background-color: #58d8ff;
+    border-radius: 10px;
 }
 
-#taskList::-webkit-scrollbar-thumb:hover {
-    background-color: #fad0c4;
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
